@@ -268,13 +268,20 @@ Para começar, me passa seu WhatsApp? 😊`;
         scrollToBottom();
     }
 
-    // Scroll to bottom
+    // Scroll to bottom - only if content exceeds viewport
     function scrollToBottom() {
         setTimeout(() => {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth'
-            });
+            // Only scroll if page content is taller than viewport
+            if (document.body.scrollHeight > window.innerHeight) {
+                const chatInputArea = document.getElementById('chat-input-area');
+                const targetElement = chatInputArea && chatInputArea.style.display !== 'none' 
+                    ? chatInputArea 
+                    : chatMessages.lastElementChild;
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }
+            }
         }, 200);
     }
 
