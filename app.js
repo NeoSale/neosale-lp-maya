@@ -836,8 +836,9 @@ Esses dados estão corretos?`;
     async function validateInput(field, value) {
         switch (field) {
             case 'nome':
-                if (value.length < 2) {
-                    await addBotMessage('Por favor, digite seu nome completo.');
+                const nameParts = value.trim().split(/\s+/);
+                if (nameParts.length < 2 || nameParts[1].length < 2) {
+                    await addBotMessage('Por favor, digite seu nome completo (nome e sobrenome).');
                     showInput('text', 'Digite seu nome completo...');
                     scrollToBottom();
                     return false;
@@ -845,8 +846,17 @@ Esses dados estão corretos?`;
                 return true;
             case 'telefone':
                 const phone = value.replace(/\D/g, '');
-                if (phone.length < 10) {
-                    await addBotMessage('Por favor, digite um telefone válido com DDD.');
+                // Validar telefone brasileiro: 10 ou 11 dígitos (com DDD)
+                if (phone.length < 10 || phone.length > 11) {
+                    await addBotMessage('Por favor, digite um WhatsApp válido com DDD (ex: 11 99999-9999).');
+                    showInput('phone', '(11) 99999-9999');
+                    scrollToBottom();
+                    return false;
+                }
+                // Validar DDD (11-99)
+                const ddd = parseInt(phone.substring(0, 2));
+                if (ddd < 11 || ddd > 99) {
+                    await addBotMessage('DDD inválido. Por favor, digite um WhatsApp válido com DDD.');
                     showInput('phone', '(11) 99999-9999');
                     scrollToBottom();
                     return false;
