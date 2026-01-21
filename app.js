@@ -1297,6 +1297,9 @@ Temos apenas três vagas para diagnósticos personalizados esta semana - onde va
                 slot.classList.add('selected');
                 state.data.horario_agendamento = slot.dataset.time;
                 confirmBtn.style.display = 'block';
+                
+                // Scroll to bottom after selecting time
+                scrollToBottom();
             });
         });
     }
