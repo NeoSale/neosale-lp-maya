@@ -219,10 +219,10 @@ Para começar, me passa seu telefone/WhatsApp? 😊`;
     // Scroll to bottom
     function scrollToBottom() {
         setTimeout(() => {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth'
-            });
+            const main = document.querySelector('main');
+            if (main) {
+                main.scrollTop = main.scrollHeight;
+            }
         }, 500);
     }
 
@@ -1610,13 +1610,24 @@ O link da reunião será enviado por email e WhatsApp.`);
 
     // Handle visual viewport resize (mobile keyboard)
     const inputArea = document.getElementById('chat-input-area');
+    const mainElement = document.querySelector('main');
     
     function adjustForKeyboard() {
         if (window.visualViewport) {
             const viewport = window.visualViewport;
-            const bottomOffset = window.innerHeight - viewport.height - viewport.offsetTop;
-            inputArea.style.bottom = Math.max(0, bottomOffset) + 'px';
-            scrollToBottom();
+            // Calculate keyboard height
+            const keyboardHeight = window.innerHeight - viewport.height;
+            
+            // Adjust input area position
+            inputArea.style.bottom = Math.max(0, keyboardHeight) + 'px';
+            
+            // Adjust main padding to account for keyboard
+            mainElement.style.paddingBottom = (80 + keyboardHeight) + 'px';
+            
+            // Scroll to bottom
+            setTimeout(() => {
+                mainElement.scrollTop = mainElement.scrollHeight;
+            }, 50);
         }
     }
 
@@ -1625,9 +1636,12 @@ O link da reunião será enviado por email e WhatsApp.`);
         window.visualViewport.addEventListener('scroll', adjustForKeyboard);
     }
 
-    // Fallback for iOS Safari
-    window.addEventListener('resize', function() {
-        setTimeout(adjustForKeyboard, 100);
+    // Reset when keyboard closes
+    userInput.addEventListener('blur', function() {
+        setTimeout(() => {
+            inputArea.style.bottom = '0px';
+            mainElement.style.paddingBottom = '80px';
+        }, 100);
     });
 
     // Initialize on DOM ready
