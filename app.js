@@ -1358,8 +1358,14 @@ Temos apenas três vagas para diagnósticos personalizados esta semana - onde va
         chatMessages.appendChild(confirmDiv);
         scrollToBottom();
 
-        document.getElementById('final-confirm-btn').addEventListener('click', () => {
-            submitLead();
+        document.getElementById('final-confirm-btn').addEventListener('click', async () => {
+            const btn = document.getElementById('final-confirm-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="loading-spinner"></span> Confirmando...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            
+            await submitLead();
         });
     }
 

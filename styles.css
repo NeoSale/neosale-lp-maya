@@ -87,7 +87,7 @@ header {
 /* Main Chat Container */
 main {
     padding-top: 20px;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
 }
 
 .chat-container {
@@ -591,6 +591,27 @@ footer a {
 
 .confirm-btn:hover {
     transform: translateY(-2px);
+}
+
+.confirm-btn:disabled {
+    cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* Success Screen */
