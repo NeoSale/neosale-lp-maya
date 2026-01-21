@@ -268,19 +268,32 @@ Para começar, me passa seu WhatsApp? 😊`;
         scrollToBottom();
     }
 
-    // Scroll to bottom - only if content exceeds viewport
+    // Scroll to show last element - smart scroll that doesn't hide content at top
     function scrollToBottom() {
         setTimeout(() => {
-            // Only scroll if page content is taller than viewport
-            if (document.body.scrollHeight > window.innerHeight) {
-                const chatInputArea = document.getElementById('chat-input-area');
-                const targetElement = chatInputArea && chatInputArea.style.display !== 'none' 
-                    ? chatInputArea 
-                    : chatMessages.lastElementChild;
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
-                }
+            const chatInputArea = document.getElementById('chat-input-area');
+            const targetElement = chatInputArea && chatInputArea.style.display !== 'none' 
+                ? chatInputArea 
+                : chatMessages.lastElementChild;
+            
+            if (!targetElement) return;
+            
+            const rect = targetElement.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            // If element is already fully visible, don't scroll
+            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
+                return;
+            }
+            
+            // If element is below viewport, scroll to show it
+            if (rect.bottom > viewportHeight) {
+                // Calculate how much we need to scroll
+                const scrollNeeded = rect.bottom - viewportHeight + 20; // 20px margin
+                window.scrollBy({
+                    top: scrollNeeded,
+                    behavior: 'smooth'
+                });
             }
         }, 200);
     }
