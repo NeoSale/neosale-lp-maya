@@ -278,7 +278,7 @@ Para começar, me passa seu WhatsApp? 😊`;
             
             if (targetElement) {
                 const rect = targetElement.getBoundingClientRect();
-                // Only scroll if element is below the visible area (with 50px margin)
+                // Only scroll if element is below the visible area (with 20px margin)
                 if (rect.bottom > window.innerHeight - 20) {
                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
@@ -1540,76 +1540,76 @@ O link da reunião será enviado por email e WhatsApp.`);
         const calendarLink = generateCalendarLink();
 
         chatMessages.innerHTML = `
-            <div class="success-screen" style="padding: 12px; text-align: center;">
-                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+            <div class="success-screen" style="padding: 16px; text-align: center;">
+                <div style="width: 56px; height: 56px; background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                 </div>
                 
-                <h2 style="font-size: 1.25rem; margin: 0 0 2px 0; color: var(--text-light);">Obrigado, ${firstName}!</h2>
-                <p style="color: var(--accent); font-size: 0.875rem; margin: 0 0 12px 0; font-weight: 600;">Consultoria confirmada</p>
+                <h2 style="font-size: 1.375rem; margin: 0 0 4px 0; color: var(--text-light);">Obrigado, ${firstName}!</h2>
+                <p style="color: var(--accent); font-size: 1rem; margin: 0 0 14px 0; font-weight: 600;">Consultoria confirmada</p>
 
-                <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent); border-radius: 10px; padding: 10px; margin-bottom: 12px;">
-                    <p style="font-size: 0.875rem; color: var(--text-light); margin: 0;">
+                <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent); border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                    <p style="font-size: 1rem; color: var(--text-light); margin: 0;">
                         📅 ${dateFormatted} às ${state.data.horario_agendamento}
                     </p>
                 </div>
                 
-                <p style="font-size: 0.75rem; color: var(--text-gray); margin-bottom: 12px;">
+                <p style="font-size: 0.875rem; color: var(--text-gray); margin-bottom: 14px;">
                     Link por <strong style="color: var(--accent);">email</strong> e <strong style="color: #25D366;">WhatsApp</strong>
                 </p>
                 
-                <div style="background: var(--bg-card); border-radius: 10px; padding: 10px; margin-bottom: 12px;">
-                    <p style="font-size: 0.625rem; color: var(--text-muted); margin-bottom: 4px;">Faltam</p>
-                    <div class="countdown" id="countdown" style="font-size: 1.25rem; font-weight: 700; color: var(--accent);">00:00:00:00</div>
-                    <p style="font-size: 0.5rem; color: var(--text-muted); margin: 0;">dias : horas : min : seg</p>
+                <div style="background: var(--bg-card); border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">Faltam</p>
+                    <div class="countdown" id="countdown" style="font-size: 1.5rem; font-weight: 700; color: var(--accent);">00:00:00:00</div>
+                    <p style="font-size: 0.625rem; color: var(--text-muted); margin: 0;">dias : horas : min : seg</p>
                 </div>
                 
-                <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 12px;">
+                <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 14px;">
                     <div style="text-align: center;">
-                        <div style="width: 36px; height: 36px; background: rgba(6, 182, 212, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2">
+                        <div style="width: 40px; height: 40px; background: rgba(6, 182, 212, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 4px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                             </svg>
                         </div>
-                        <p style="font-size: 0.5rem; color: var(--text-gray);">Diagnóstico</p>
+                        <p style="font-size: 0.625rem; color: var(--text-gray);">Diagnóstico</p>
                     </div>
                     <div style="text-align: center;">
-                        <div style="width: 36px; height: 36px; background: rgba(6, 182, 212, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2">
+                        <div style="width: 40px; height: 40px; background: rgba(6, 182, 212, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 4px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <p style="font-size: 0.5rem; color: var(--text-gray);">Oportunidades</p>
+                        <p style="font-size: 0.625rem; color: var(--text-gray);">Oportunidades</p>
                     </div>
                     <div style="text-align: center;">
-                        <div style="width: 36px; height: 36px; background: rgba(6, 182, 212, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2">
+                        <div style="width: 40px; height: 40px; background: rgba(6, 182, 212, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 4px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                         </div>
-                        <p style="font-size: 0.5rem; color: var(--text-gray);">Plano</p>
+                        <p style="font-size: 0.625rem; color: var(--text-gray);">Plano</p>
                     </div>
                 </div>
                 
-                <div style="background: var(--bg-card); border-radius: 10px; padding: 10px; text-align: left;">
-                    <h4 style="font-size: 0.75rem; margin-bottom: 6px; color: var(--text-light);">Próximos passos</h4>
-                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-                        <span style="color: var(--success); font-size: 0.75rem;">✓</span>
-                        <span style="font-size: 0.6875rem; color: var(--text-gray);">Reunião confirmada</span>
+                <div style="background: var(--bg-card); border-radius: 12px; padding: 12px; text-align: left;">
+                    <h4 style="font-size: 0.875rem; margin-bottom: 8px; color: var(--text-light);">Próximos passos</h4>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                        <span style="color: var(--success); font-size: 0.875rem;">✓</span>
+                        <span style="font-size: 0.8125rem; color: var(--text-gray);">Reunião confirmada</span>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-                        <span style="font-size: 0.75rem;">📧</span>
-                        <span style="font-size: 0.6875rem; color: var(--text-gray);">Link por email</span>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                        <span style="font-size: 0.875rem;">📧</span>
+                        <span style="font-size: 0.8125rem; color: var(--text-gray);">Link por email</span>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-                        <span style="font-size: 0.75rem;">📱</span>
-                        <span style="font-size: 0.6875rem; color: var(--text-gray);">Confirmação WhatsApp</span>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                        <span style="font-size: 0.875rem;">📱</span>
+                        <span style="font-size: 0.8125rem; color: var(--text-gray);">Confirmação WhatsApp</span>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 6px;">
-                        <span style="font-size: 0.75rem;">💡</span>
-                        <span style="font-size: 0.6875rem; color: var(--text-gray);">Prepare seus desafios</span>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 0.875rem;">💡</span>
+                        <span style="font-size: 0.8125rem; color: var(--text-gray);">Prepare seus desafios</span>
                     </div>
                 </div>
             </div>
