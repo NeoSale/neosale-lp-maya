@@ -209,7 +209,7 @@ Para começar, me passa seu WhatsApp? 😊`;
             
             // Delay between messages - longer for longer messages
             if (i < messages.length - 1) {
-                const delayTime = Math.min(500 + messages[i].length * 5, 1500);
+                const delayTime = Math.min(800 + messages[i].length * 8, 2500);
                 await new Promise(resolve => setTimeout(resolve, delayTime));
             }
         }
@@ -234,7 +234,7 @@ Para começar, me passa seu WhatsApp? 😊`;
             scrollToBottom();
 
             // Typing time proportional to message length
-            const typingTime = Math.min(1000 + text.length * 15, 3000);
+            const typingTime = Math.min(1500 + text.length * 20, 4000);
             
             setTimeout(() => {
                 typingDiv.remove();
