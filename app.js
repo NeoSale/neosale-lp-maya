@@ -268,13 +268,17 @@ Para começar, me passa seu WhatsApp? 😊`;
         scrollToBottom();
     }
 
-    // Scroll to bottom
+    // Scroll to bottom - only if content exceeds viewport
     function scrollToBottom() {
         setTimeout(() => {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth'
-            });
+            const lastMessage = chatMessages.lastElementChild;
+            if (lastMessage) {
+                // Only scroll if the last message is below the viewport
+                const rect = lastMessage.getBoundingClientRect();
+                if (rect.bottom > window.innerHeight) {
+                    lastMessage.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }
+            }
         }, 100);
     }
 
@@ -1312,7 +1316,7 @@ Temos apenas três vagas para diagnósticos personalizados esta semana - onde va
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        <span>+${telefone}</span>
+                        <span>${telefone}</span>
                     </div>
                     <div class="confirmation-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
