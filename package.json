@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "commit": "bash scripts/commit.sh"
+    "commit": "bash scripts/commit.sh",
+    "deploy": "bash scripts/deploy.sh",
+    "ship": "bash scripts/commit.sh && bash scripts/deploy.sh"
   },
   "dependencies": {
     "react": "^18.2.0",

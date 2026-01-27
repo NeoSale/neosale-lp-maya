@@ -20,3 +20,6 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Deploy script with sensitive token
+scripts/deploy.sh
