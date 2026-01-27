@@ -10,11 +10,10 @@ export const CONFIG = {
 };
 
 // Debug: log config status (without exposing keys)
-if (import.meta.env.DEV) {
-    console.log('=== Environment Variables Check ===');
-    console.log('OPENAI_API_KEY:', CONFIG.OPENAI_API_KEY ? 'SET' : 'NOT SET');
-    console.log('OPENAI_MODEL:', CONFIG.OPENAI_MODEL);
-    console.log('API_ENDPOINT:', CONFIG.API_ENDPOINT || 'NOT SET');
-    console.log('CLIENTE_ID:', CONFIG.CLIENTE_ID || 'NOT SET');
-    console.log('===================================');
-}
+console.log('=== Environment Variables Check ===');
+console.log('window.ENV:', window.ENV);
+console.log('OPENAI_API_KEY:', CONFIG.OPENAI_API_KEY ? 'SET' : 'NOT SET');
+console.log('OPENAI_MODEL:', CONFIG.OPENAI_MODEL);
+console.log('API_ENDPOINT:', CONFIG.API_ENDPOINT || 'NOT SET');
+console.log('CLIENTE_ID:', CONFIG.CLIENTE_ID || 'NOT SET');
+console.log('===================================');
