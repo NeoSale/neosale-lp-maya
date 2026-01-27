@@ -225,7 +225,7 @@ export async function sendToWebhook(leadId, data) {
     };
 
     try {
-        const response = await fetch('https://project-n8n.ijend9.easypanel.host/webhook/lp-with-ai', {
+        const response = await fetch('https://project-neosale-n8n-v2.svcysk.easypanel.host/webhook/lp-maya', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
