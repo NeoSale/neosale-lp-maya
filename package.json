@@ -1,7 +1,7 @@
 {
   "name": "neosale-lp-react",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,8 @@
     "preview": "vite preview",
     "commit": "bash scripts/commit.sh",
     "deploy": "bash scripts/deploy.sh",
+    "push": "bash scripts/git-push.sh",
+    "push:fix": "bash scripts/git-push.sh fix",
     "ship": "bash scripts/commit.sh && bash scripts/deploy.sh"
   },
   "dependencies": {
